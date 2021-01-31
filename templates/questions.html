@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+
+<form action="{% url 'answer:results' brif_id %}" id="{{ forloop.counter }}" method="post">
+
+<p>{{ anonymus.isAnonymus }}&nbsp;Пройти опрос анонимно</p>
+
+{% for q_form in q_forms %}
+	{% csrf_token %}
+	<div class="row form-row spacer">
+		<div class="input-group">{{ q_form.name.value }}</div>	
+		<div class="input-group">{{ q_form.ans }}</div>
+		<div style="input-group">{{ q_form.question_id.as_hidden }}</div>
+		<div style="input-group">{{ q_form.type_.as_hidden }}</div>
+	 </div>	
+{% endfor %}
+<input type="submit" id="sendAll" value="ПРИНЯТЬ">
+</form>
+
+
+{% endblock %}

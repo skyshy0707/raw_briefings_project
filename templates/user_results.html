@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+{% for result in results %}
+	
+	<h2>Опрос: "{{ result.res }}"</h2>
+	
+	<h5>Результаты:</h5>
+
+	{% for question, anss in result.answers.items %}
+	
+		<p>Вопрос: "{{ question }}"</p>
+		
+		<p>Вы ответили:</p>
+		{% for ans in anss %}
+		
+			<p>{{ ans }}</p>
+		
+		{% endfor %}
+
+	
+	{% endfor %}
+
+{% endfor %}
+	
+
+	
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+<form action="" method="post">{% csrf_token %}
+	
+	{{ form.as_p }}
+	
+	<input type="submit" value="ПРИНЯТЬ" />
+	
+</form>
+
+
+<form action="{% url 'question:add_question' brif_id %}" method="post">
+{% csrf_token %}
+{{ form_cr_q.as_p }}
+<input type="submit" value="СОЗДАТЬ ВОПРОС"/>
+</form>
+	
+
+{% endblock %}

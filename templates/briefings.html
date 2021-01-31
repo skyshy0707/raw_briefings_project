@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block container %}
+
+{% for brief in briefs %}
+
+	<p>Опрос:&nbsp;"{{ brief.name }}"
+	<p>Описание:
+	<p>{{ brief.description }} 
+	<p>Дата начала:&nbsp;{{ brief.date_begin }} 
+	<p>Дата завершения:&nbsp;{{ brief.date_end }} 
+	<a href="{% url 'briefing:briefing_delete_form' brief.id %}" class="btn btn-primary btn-lg active" role="button">УДАЛИТЬ</a>
+	<a href="{% url 'briefing:briefing_edit_form' brief.id %}" class="btn btn-primary btn-lg active" role="button">ИЗМЕНИТЬ</a>
+	<a href="{% url 'question:questions' brief.id 0 %}" class="btn btn-primary btn-lg active" role="button">ВОПРОСЫ</a>
+	<a href="{% url 'question:questions' brief.id 1 %}" class="btn btn-primary btn-lg active" role="button">ИЗМЕНИТЬ ВОПРОСЫ</a>
+	
+
+{% endfor %}
+
+{% endblock %}

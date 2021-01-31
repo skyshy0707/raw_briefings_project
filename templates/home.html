@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+
+{% block container %}
+
+
+<div class="container">
+
+<a href="{% url 'briefing:briefings' %}" class="btn btn-primary btn-lg active" role="button">ОПРОСЫ</a>
+<a href="{% url 'results:users_results' %}" class="btn btn-primary btn-lg active" role="button">РЕЗУЛЬТАТЫ</a>
+<a href="{% url 'briefing:add_brief' %}" class="btn btn-primary btn-lg active" role="button">ДОБАВИТЬ ОПРОС</a>
+<a href="{% url 'user:signup' %}" class="btn btn-primary btn-lg active" role="button">РЕГИСТРАЦИЯ</a>
+<a href="{% url 'login' %}" class="btn btn-primary btn-lg active" role="button">ВОЙТИ</a>
+</div>
+
+{% endblock %}

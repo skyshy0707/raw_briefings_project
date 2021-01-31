@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+<form action="" id="{{ forloop.counter }}" method="post">
+
+{% for q_form in q_forms %}
+	{% csrf_token %}
+	<div class="row form-row spacer">
+		<div class="input-group">{{ q_form.name.value }}</div>	
+		<div class="input-group">{{ q_form.ans }}</div>
+	 </div>	
+	{% if q_form.type_.value == 'Text_Ans' %}
+	
+		<a href="{% url 'question:svquestion_edit_form' brif_id q_form.question_id.value %}" class="btn btn-primary btn-lg active" role="button">РЕДАКТИРОВАТЬ</a>
+		<a href="{% url 'question:svquestion_delete_form' brif_id q_form.question_id.value %}" class="btn btn-primary btn-lg active" role="button">УДАЛИТЬ</a>
+	
+	{% else %}
+	
+		<a href="{% url 'question:mvquestion_edit_form' brif_id q_form.question_id.value %}" class="btn btn-primary btn-lg active" role="button">РЕДАКТИРОВАТЬ</a>
+		<a href="{% url 'question:mvquestion_delete_form' brif_id q_form.question_id.value %}" class="btn btn-primary btn-lg active" role="button">УДАЛИТЬ</a>
+	
+	{% endif %}
+{% endfor %}
+</form>
+
+{% endblock %}

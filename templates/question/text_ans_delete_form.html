@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+<form action="" method="post">{% csrf_token %}
+	
+
+	Вы действительно хотите удалить вопрос "{{ text_ans.name }}"?
+	
+	
+	<input type="submit" value="ПРИНЯТЬ" method="post"/>
+	
+</form>
+
+{% endblock %}

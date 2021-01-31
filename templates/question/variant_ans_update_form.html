@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+<form action="" method="post">{% csrf_token %}
+{{ var_forms.management_form }}	
+
+	
+	{{ form.name.label }}:
+	{{ form.name }}
+	
+	{% for field in var_forms %}
+	
+		<p>{{ field.as_p }}</p>
+		
+	{% endfor %}
+	
+	<input type="submit" value="ПРИНЯТЬ" />
+	
+</form>
+
+{% endblock %}
