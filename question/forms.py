@@ -8,8 +8,8 @@ class AddQuestion(forms.Form):
 
 	
 	type_ans = forms.CharField(widget=forms.Select(choices=
-									(('TXT', 'Text_Ans'), 
-									('VAR', 'Variant_Ans')
+									(('TXT', 'Текстовый'), 
+									('VAR', 'Мультивариантный')
 									)
 									)
 									)
